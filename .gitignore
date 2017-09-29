@@ -1,0 +1,10 @@
+.env
+.DS_Store
+.idea
+sftp-config.json
+composer.lock
+/vendor/
+/logs/*
+/storage/*
+!.gitkeep
+!/logs/README.md
