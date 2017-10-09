@@ -1,4 +1,10 @@
 <?php
+
+//Boot dotenv
+$dotenv = new Dotenv\Dotenv(realpath(__DIR__ . '/..'));
+$dotenv->load();
+
+//App config
 return [
     'settings' => [
         'displayErrorDetails' => true, // set to false in production
@@ -20,18 +26,18 @@ return [
 
         //Database settings
         'databases' => [
-            'default' => 'mysql',
+            'default' => getenv('DB_CONNECTION'),
 
             'connections' => [
                 'mysql' => [
                     'driver'    => 'mysql',
-                    'host'      => 'localhost',
-                    'database'  => 'database',
-                    'username'  => 'root',
-                    'password'  => 'root',
+                    'host'      => getenv('DB_HOST'),
+                    'database'  => getenv('DB_DATABASE'),
+                    'username'  => getenv('DB_USERNAME'),
+                    'password'  => getenv('DB_PASSWORD'),
                     'charset'   => 'utf8',
                     'collation' => 'utf8_unicode_ci',
-                    'prefix'    => '',
+                    'prefix'    => getenv('DB_PREFIX'),
                 ]
             ]
         ],
